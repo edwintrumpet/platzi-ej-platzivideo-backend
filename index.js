@@ -1,5 +1,6 @@
 const express = require('express');
-const app = express();
+const helmet = require('helmet');
+const cors = require('cors');
 const { config } = require('./config');
 const moviesApi = require('./routes/movies');
 const {
@@ -9,6 +10,14 @@ const {
 } = require('./utils/middlewares/errorHandlers');
 const notFoundHandler = require('./utils/middlewares/notFoundHandler');
 
+const app = express();
+app.use(helmet());
+app.use(
+  cors({
+    origin: config.cors,
+    credentials: true
+  })
+);
 app.use(express.json());
 
 moviesApi(app);
