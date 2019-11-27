@@ -22,3 +22,7 @@ Para la configuración del linter que se ejecuta automáticamente al guardar se 
 ```shell
 npx mrm lint-staged
 ```
+
+## Herramientas utilizadas
+
+- [Mockaroo](https://mockaroo.com/) para la construcción del mock de datos
