@@ -154,6 +154,10 @@ class MoviesServiceMock {
     return Promise.resolve(moviesMock);
   }
 
+  async getMovie() {
+    return Promise.resolve(moviesMock[0])
+  }
+
   async createMovie() {
     return Promise.resolve(moviesMock[0]);
   }

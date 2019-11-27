@@ -22,4 +22,34 @@ describe('routes - movies', () => {
       });
     });
   });
+
+  describe('GET /movies/:movieId', () => {
+    it('should respond with status 200', done => {
+      request.get('/api/movies/5dde782d526d85205f3d100c').expect(200, done);
+    });
+    it('should respond with a movie', done => {
+      request.get('/api/movies/5dde782d526d85205f3d100c').end((err, res) => {
+        assert.deepEqual(res.body, {
+          data: moviesMock[0],
+          message: 'movie retrieved'
+        });
+        done();
+      });
+    });
+  });
+
+  describe('POST /movies', () => {
+    it('should respond with status 201', done => {
+      request.post('/api/movies').expect(201, done);
+    });
+    it('should respond with the created movie id', done => {
+      request.post('/api/movies').end((err, res) => {
+        assert.deepEqual(res.body, {
+          data: moviesMock[0],
+          message: 'movie created'
+        });
+        done();
+      });
+    });
+  });
 });

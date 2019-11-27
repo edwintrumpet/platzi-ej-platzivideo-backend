@@ -27,3 +27,7 @@ npx mrm lint-staged
 
 - [Mockaroo](https://mockaroo.com/) para la construcción del mock de datos
 - [gitignore.io](https://www.gitignore.io/) Para la construcción del gitignore
+
+## Pendientes
+
+- Terminar los tests
