@@ -26,3 +26,4 @@ npx mrm lint-staged
 ## Herramientas utilizadas
 
 - [Mockaroo](https://mockaroo.com/) para la construcción del mock de datos
+- [gitignore.io](https://www.gitignore.io/) Para la construcción del gitignore
