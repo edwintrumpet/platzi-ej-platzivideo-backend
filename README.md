@@ -14,6 +14,16 @@ npm i
 Inicia el servidor en modo de desarrollo
 - `npm start`  
 Inicia el servidor en modo producción
+- `npm run test`  
+Ejecuta los tests
+- `npm run cover`  
+Ejecuta en terminal el software que evalua la cobertura de los tests
+- `npm run report`  
+Ejecuta en una página web el software que evalua la cobertura de los tests
+
+## Sitio web
+
+https://platzivideo.sparkcomco.now.sh/
 
 ## Deploy en Now
 
@@ -34,6 +44,10 @@ now dev
 ```shell
 now
 ```
+- Si ya tenemos un despliegue el despliegue no se hará en producción si no se aplica la siguiente bandera
+```shell
+now --prod
+```
 
 ## Desarrollo
 
@@ -51,4 +65,4 @@ npx mrm lint-staged
 ## Pendientes
 
 - Terminar los tests
-- No se hizo el despliegue porque ya hay un despliegue de esta aplicación
+- Revisar como contener la aplicación en Docker
