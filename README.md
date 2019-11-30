@@ -21,6 +21,8 @@ Ejecuta en terminal el software que evalua la cobertura de los tests
 - `npm run report`  
 Ejecuta en una página web el software que evalua la cobertura de los tests
 
+En el directorio _Scripts_ se encuentran scripts adicionales para alimentar la base de datos con valores de prueba
+
 ## Sitio web
 
 https://platzivideo.sparkcomco.now.sh/
@@ -61,6 +63,7 @@ npx mrm lint-staged
 
 - [Mockaroo](https://mockaroo.com/) para la construcción del mock de datos
 - [gitignore.io](https://www.gitignore.io/) Para la construcción del gitignore
+- [Generación de Keys](https://keygen.io/)
 
 ## Pendientes
 
