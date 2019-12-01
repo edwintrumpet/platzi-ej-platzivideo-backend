@@ -10,7 +10,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@hapi/boom": "^8.0.1",
+    "axios": "^0.19.0",
+    "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0"
   }
 }
