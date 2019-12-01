@@ -15,7 +15,8 @@ app.use(cookieParser());
 require("./utils/auth/strategies/basic");
 
 app.post("/auth/sign-in", async (req, res, next) => {
-  passport.authenticate("basic", (error, data) => {
+  passport.authenticate("basic", (err, data) => {
+    const { token, user } = data;
     try {
       if (err || !data) {
         next(Boom.unauthorized());
@@ -28,7 +29,7 @@ app.post("/auth/sign-in", async (req, res, next) => {
           httpOnly: !config.dev,
           secure: !config.dev
         });
-        res.status(200).json(user);
+        res.status(200).json({ user });
       });
     } catch (err) {
       next(err);
@@ -52,9 +53,42 @@ app.post("/auth/sign-up", async (req, res, next) => {
 
 app.get("/movies", async (req, res, next) => {});
 
-app.post("/user-movies", async (req, res, next) => {});
+app.post("/user-movies", async (req, res, next) => {
+  const { body: userMovie } = req;
+  const { token } = req.cookies;
+  try {
+    const { data, status } = await axios({
+      url: `${config.apiUrl}/api/user-movies`,
+      headers: { Authorization: `Bearer ${token}` },
+      method: "post",
+      data: userMovie
+    });
+    if (status !== 201) {
+      return next(Boom.badImplementation());
+    }
+    res.status(201).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
 
-app.delete("/user-movies/:userMovieId", async (req, res, next) => {});
+app.delete("/user-movies/:userMovieId", async (req, res, next) => {
+  const { userMovieId } = req.params;
+  const { token } = req.cookies;
+  try {
+    const { data, status } = await axios({
+      url: `${config.apiUrl}/api/user-movies/${userMovieId}`,
+      headers: { Authorization: `Bearer ${token}` },
+      method: "delete"
+    });
+    if (status !== 200) {
+      return next(Boom.badImplementation());
+    }
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
 
 app.listen(PORT, err => {
   if (err) console.log(err);
