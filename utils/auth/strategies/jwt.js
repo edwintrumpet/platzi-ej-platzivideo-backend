@@ -18,7 +18,7 @@ passport.use(
           return cb(Boom.unauthorized(), false);
         }
         delete user.password;
-        return cb(null, { ...user, scopes: tokenPayload });
+        return cb(null, { ...user, scopes: tokenPayload.scopes });
       } catch (err) {
         cb(err);
       }
