@@ -71,3 +71,4 @@ En el SESSION_SECRET se usó un SHA-256 bit key
 
 - Terminar los tests
 - Revisar como contener la aplicación en Docker
+- Profundizar en los métodos de autenticación, especialmente facebook for developers
