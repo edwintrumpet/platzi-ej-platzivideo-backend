@@ -59,6 +59,8 @@ Para la configuración del linter que se ejecuta automáticamente al guardar se 
 npx mrm lint-staged
 ```
 
+En el SESSION_SECRET se usó un SHA-256 bit key
+
 ## Herramientas utilizadas
 
 - [Mockaroo](https://mockaroo.com/) para la construcción del mock de datos
